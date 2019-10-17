@@ -1,0 +1,11 @@
+[Desktop Entry]
+
+Type=Application
+Version=1.0
+Name=Soundboard
+GenericName=Soundboard
+Exec=/usr/bin/Soundboard
+Icon=/usr/share/pixmaps/soundboard-icon.jpg
+Terminal=false
+Categories=Audio;
+Comment=A universal soundboard using pulseaudio modules
