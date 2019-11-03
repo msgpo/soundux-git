@@ -7,7 +7,7 @@ arch=('any')
 url="https://github.com/D3S0X/Soundboard"
 license=('GPL3')
 depends=('qt5-base' 'qt5-svg')
-makedepends=('qt5-tools' 'git' 'ninja' 'cmake')
+makedepends=('qt5-tools' 'git' 'qpm-bin')
 optdepends=('mpg123: mp3 support')
 source=("git+https://github.com/D3S0X/Soundboard.git")
 sha256sums=('SKIP')
@@ -21,9 +21,10 @@ pkgver() {
 
 build() {
   cd "${srcdir}/Soundboard"
+  qpm install
   mkdir -p build
   cd build
-  cmake ..
+  qmake ..
   make
 }
 
