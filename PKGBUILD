@@ -9,8 +9,8 @@ license=('GPL3')
 depends=('qt5-base' 'qt5-svg')
 makedepends=('qt5-tools' 'git' 'qpm-bin')
 optdepends=('mpg123: mp3 support')
-source=("git+https://github.com/D3S0X/Soundboard.git")
-sha256sums=('SKIP')
+source=("git+https://github.com/D3S0X/Soundboard.git" "soundboard.desktop")
+sha256sums=('SKIP' 'df1a8be73b1fc73990a4b9a867216484592f7fa7c3cc96f53d81a120b64c2494')
 
 pkgver() {
   cd "${srcdir}/Soundboard"
@@ -29,7 +29,10 @@ build() {
 }
 
 package() {
-  install -Dm 664 "${srcdir}/Soundboard/icon.jpg" "${pkgdir}/usr/share/pixmaps/soundboard-icon.jpg"
-  install -Dm 644 "../soundboard.desktop" "${pkgdir}/usr/share/applications/soundboard.desktop"
+  # install binary
   install -Dm 755 "${srcdir}/Soundboard/build/Soundboard" "${pkgdir}/usr/bin/Soundboard"
+  # install icon
+  install -Dm 664 "${srcdir}/Soundboard/icon.jpg" "${pkgdir}/usr/share/pixmaps/soundboard-icon.jpg"
+  # install desktop file
+  install -Dm 644 "${srcdir}/soundboard.desktop" "${pkgdir}/usr/share/applications/soundboard.desktop"
 }
