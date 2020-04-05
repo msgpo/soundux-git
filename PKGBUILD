@@ -1,26 +1,26 @@
 # Maintainer: D3SOX <d3sox@420blaze.it>
-pkgname=soundboard-git
+pkgname=soundux-git
 pkgver=r
 pkgrel=1
 pkgdesc="A universal soundboard in Qt for linux using pulseaudio modules"
 arch=('any')
-url="https://github.com/D3S0X/Soundboard"
+url="https://github.com/D3S0X/Soundux"
 license=('GPL3')
 depends=('qt5-base' 'qt5-x11extras')
 makedepends=('qt5-tools' 'git' 'qpm-bin')
 optdepends=('mpg123: mp3 support')
-source=("git+https://github.com/D3S0X/Soundboard.git" "soundboard.desktop")
-sha256sums=('SKIP' 'df1a8be73b1fc73990a4b9a867216484592f7fa7c3cc96f53d81a120b64c2494')
+source=("git+https://github.com/D3S0X/Soundux.git" "soundux.desktop")
+sha256sums=('SKIP' '489482294980db2352f754d1f26450daa545b39acd863a5b0069cea922944c60')
 
 pkgver() {
-  cd "${srcdir}/Soundboard"
+  cd "${srcdir}/Soundux"
 
   # Get the version number.
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
-  cd "${srcdir}/Soundboard"
+  cd "${srcdir}/Soundux"
   qpm install
   mkdir -p build
   cd build
@@ -30,9 +30,9 @@ build() {
 
 package() {
   # install binary
-  install -Dm 755 "${srcdir}/Soundboard/build/Soundboard" "${pkgdir}/usr/bin/Soundboard"
+  install -Dm 755 "${srcdir}/Soundboard/build/Soundux" "${pkgdir}/usr/bin/Soundux"
   # install icon
-  install -Dm 664 "${srcdir}/Soundboard/icon.jpg" "${pkgdir}/usr/share/pixmaps/soundboard-icon.jpg"
+  install -Dm 664 "${srcdir}/Soundboard/icon.jpg" "${pkgdir}/usr/share/pixmaps/soundux-icon.jpg"
   # install desktop file
-  install -Dm 644 "${srcdir}/soundboard.desktop" "${pkgdir}/usr/share/applications/soundboard.desktop"
+  install -Dm 644 "${srcdir}/soundux.desktop" "${pkgdir}/usr/share/applications/soundux.desktop"
 }
