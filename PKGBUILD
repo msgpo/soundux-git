@@ -30,9 +30,9 @@ build() {
 
 package() {
   # install binary
-  install -Dm 755 "${srcdir}/Soundboard/build/Soundux" "${pkgdir}/usr/bin/Soundux"
+  install -Dm 755 "${srcdir}/Soundux/build/Soundux" "${pkgdir}/usr/bin/Soundux"
   # install icon
-  install -Dm 664 "${srcdir}/Soundboard/icon.jpg" "${pkgdir}/usr/share/pixmaps/soundux-icon.jpg"
+  install -Dm 664 "${srcdir}/Soundux/icon.jpg" "${pkgdir}/usr/share/pixmaps/soundux-icon.jpg"
   # install desktop file
   install -Dm 644 "${srcdir}/soundux.desktop" "${pkgdir}/usr/share/applications/soundux.desktop"
 }
